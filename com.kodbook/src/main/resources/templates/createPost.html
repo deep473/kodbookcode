@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Post</title>
+    <link rel="stylesheet" type="text/css" >
+</head>
+<body>
+    <h2>Profile Creation</h2>
+    <form id="profileForm" action="/createPost" method="post" 
+    				enctype="multipart/form-data">
+        <textarea name="caption" placeholder="caption" required >
+        </textarea>
+        <br>
+        <br>
+        <input type="file" name="photo" accept="image/*" />
+        <br>
+        <button type="submit">POST</button>
+    </form>
+</body>
+</html>
