@@ -14,6 +14,7 @@ public class Post {
 	private String caption;
 	private int likes;
 	private List<String> comments;
+	
 
 	@Lob
 	@Basic(fetch = FetchType.LAZY)

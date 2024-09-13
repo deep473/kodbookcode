@@ -29,4 +29,14 @@ public class PostServiceImplementation
 	public List<Post> fetchAllPosts() {
 		return repo.findAll();
 	}
+	
+	@Override
+	public Post getPost(Long id) {
+		return repo.findById(id).get();
+	}
+
+	@Override
+	public void updatePost(Post post) {
+		repo.save(post);
+	}
 }  

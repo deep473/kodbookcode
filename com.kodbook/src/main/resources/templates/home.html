@@ -12,9 +12,6 @@
 			<a href="#">My profile</a>
 		</nav>
 		
-		<h1>Home!</h1>
-		
-		<h1>Post Details</h1>
 	    <div class="profile-details">
 		    <span th:each="post:${allPosts}">
 		        <p><strong>Photo:</strong></p>
@@ -23,6 +20,19 @@
 		            alt="Profile Photo" />
 		        <p><strong>Caption:</strong> 
 		            <span th:text="${post.caption}"></span></p>
+		        <p><strong>Likes:</strong> 
+	        <span th:text="${post.likes}"></span></p>
+	        
+	        <form action="/likePost">
+	        	<input name = "id" th:value="${post.id}">
+	        	<input type="submit" value="LIKE POST">
+	        </form>
+	        
+	        <form action="/addComment" method="get">
+	        	<input name = "id" th:value="${post.id}">
+	        	<textarea name = "comment" ></textarea>
+	        	<input type="submit" value="Comment">
+	        </form>
 	      </span>  
         </div>
 	</body>

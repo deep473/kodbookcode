@@ -33,4 +33,27 @@ public class PostController {
 		service.createPost(post);
 		return "home";
 	}
+	
+	@GetMapping("/likePost")
+	public String likePost(@RequestParam Long id, Model model) {
+		Post post= service.getPost(id);
+		post.setLikes(post.getLikes() + 1);
+		service.updatePost(post);
+		
+		List<Post> allPosts = service.fetchAllPosts();
+		model.addAttribute("allPosts", allPosts);
+		return "home";
+	}
+	
+	@GetMapping("/addComment")
+	public String addComment(@RequestParam Long id, 
+			@RequestParam String comment, Model model) {
+		Post post= service.getPost(id);
+		post.getComments().add(comment);
+		service.updatePost(post);
+		
+		List<Post> allPosts = service.fetchAllPosts();
+		model.addAttribute("allPosts", allPosts);
+		return "home";
+	}
 }
