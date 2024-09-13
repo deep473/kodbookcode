@@ -1,5 +1,7 @@
 package com.kodbook.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +18,15 @@ public class PostServiceImplementation
 	@Override
 	public void createPost(Post post) {
 		repo.save(post);
+	}
+
+	@Override
+	public List<Post> getAllPosts() {
+		return repo.findAll();
+	}
+
+	@Override
+	public List<Post> fetchAllPosts() {
+		return repo.findAll();
 	}
 }
