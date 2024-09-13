@@ -1,0 +1,96 @@
+/* General page styling */
+body {
+    font-family: 'Poppins', sans-serif;  /* Funky but classy font */
+    background-color: #9DBDFF;           /* Light, calming background */
+    color: #2A2A2A;                      /* Text color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #7695FF;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 0.2em;
+}
+
+h3 {
+    color: #FF9874;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background-color: #FFD7C4;
+    margin: 20px 0;
+}
+
+/* Form styling */
+form {
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    width: 400px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Input fields */
+input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #7695FF;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+/* Radio buttons */
+label {
+    font-size: 1.1em;
+    color: #2A2A2A;
+}
+
+input[type="radio"] {
+    margin: 0 10px;
+    accent-color: #FF9874;  /* Style the radio buttons */
+}
+
+/* Submit button */
+input[type="submit"] {
+    background-color: #FF9874;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #FF9874;
+    opacity: 0.8;
+}
+
+/* Links */
+a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #7695FF;
+    font-size: 1em;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+

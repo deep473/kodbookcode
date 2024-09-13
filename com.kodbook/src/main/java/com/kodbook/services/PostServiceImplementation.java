@@ -29,4 +29,4 @@ public class PostServiceImplementation
 	public List<Post> fetchAllPosts() {
 		return repo.findAll();
 	}
-}
+}  

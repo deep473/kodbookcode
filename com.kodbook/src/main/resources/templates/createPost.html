@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>New Post</title>
-    <link rel="stylesheet" type="text/css" >
+    <link rel="stylesheet" type="text/css" th:href="@{/profile.css}">
 </head>
 <body>
+    <!-- Navigation bar -->
+    <nav>
+        <a href="/goHome">News feed</a>
+        <a href="/openCreatePost">Create post</a>
+        <a href="#">My profile</a>
+    </nav>
+
     <h2>Profile Creation</h2>
-    <form id="profileForm" action="/createPost" method="post" 
-    				enctype="multipart/form-data">
-        <textarea name="caption" placeholder="caption" required >
-        </textarea>
-        <br>
-        <br>
+    
+    <form id="profileForm" action="/createPost" method="post" enctype="multipart/form-data">
+        <textarea name="caption" placeholder="Write your caption here..." required></textarea>
+        <br><br>
         <input type="file" name="photo" accept="image/*" />
-        <br>
+        <br><br>
         <button type="submit">POST</button>
     </form>
 </body>

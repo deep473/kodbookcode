@@ -1,18 +1,25 @@
 package com.kodbook.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kodbook.entities.Post;
 import com.kodbook.entities.User;
+import com.kodbook.services.PostService;
 import com.kodbook.services.UserService;
 
 @Controller
 public class UserController {
 	@Autowired
 	UserService service;
+	@Autowired
+	PostService postService;
 	@PostMapping("/signUp")
 	public String addUser(@ModelAttribute User user) {
 		//user exists?
@@ -27,9 +34,12 @@ public class UserController {
 	
 	@PostMapping("/login")
 	public String login(@RequestParam String username,
-			@RequestParam String password)	{
+			@RequestParam String password,
+			Model model)	{
 		boolean status = service.validateUser(username, password);
 		if(status == true) {
+			List<Post> allPosts = postService.fetchAllPosts();
+			model.addAttribute("allPosts", allPosts);
 			return "home";
 		}
 		else {

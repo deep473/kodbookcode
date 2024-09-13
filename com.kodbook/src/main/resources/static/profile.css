@@ -1,0 +1,138 @@
+/* General page styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFD7C4;
+    color: #2A2A2A;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation bar */
+nav {
+    background-color: #7695FF;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+nav a:hover {
+    background-color: #9DBDFF;
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    color: #7695FF;
+    font-size: 2.5em;
+    margin: 20px 0;
+}
+
+/* Posts section */
+.profile-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.profile-details span {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.profile-details img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.profile-details p {
+    color: #2A2A2A;
+    font-size: 1.1em;
+}
+
+/* Caption styling */
+.profile-details span p strong {
+    color: #FF9874;
+    font-size: 1.2em;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    .profile-details {
+        flex-direction: column;
+    }
+}
+
+/* Form for creating a new post */
+#profileForm {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px;
+    width: 400px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#profileForm textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #7695FF;
+    border-radius: 10px;
+    font-size: 1.1em;
+    resize: none;
+}
+
+#profileForm input[type="file"] {
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+#profileForm button[type="submit"] {
+    background-color: #FF9874;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#profileForm button[type="submit"]:hover {
+    background-color: #FF9874;
+    opacity: 0.8;
+}
+
+/* Styling for form heading */
+h2 {
+    text-align: center;
+    color: #7695FF;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
