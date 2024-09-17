@@ -1,11 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>My profile</title>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/profile.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-	<h2>Profile page</h2>
-	<a href = "/openEditProfile">Update profile</a>
+    <!-- Navigation bar -->
+    <nav>
+        <a href="/goHome"><i class="fas fa-home"></i> News feed</a>
+        <a href="/openCreatePost"><i class="fas fa-plus-circle"></i> Create post</a>
+        <a href="/openMyProfile"><i class="fas fa-user-circle"></i> My profile</a>
+        <a href="/openEditProfile"><i class="fas fa-edit"></i> Edit profile</a>
+    </nav>
+
+    <div class="profile-header">
+        <!-- Cover Photo (optional, but to use space effectively) -->
+        <div class="cover-photo">
+            <!-- If you decide to add a cover photo feature -->
+        </div>
+
+        <!-- Profile Picture -->
+        <div class="profile-picture">
+            <img th:if="${user.photoBase64}" 
+                 th:src="'data:image/jpeg;base64,' + ${user.photoBase64}" 
+                 alt="Profile Photo" />
+        </div>
+
+        <!-- Username -->
+        <div class="username">
+            <h1 th:text="${user.username}"></h1>
+        </div>
+    </div>
+
+    <div class="profile-content">
+        <!-- Profile Info -->
+        <div class="profile-info">
+            <ul>
+                <li><i class="fas fa-calendar-alt"></i> Date of Birth: <span th:text="${user.dob}"></span></li>
+                <li><i class="fas fa-venus-mars"></i> Gender: <span th:text="${user.gender}"></span></li>
+                <li><i class="fas fa-map-marker-alt"></i> City: <span th:text="${user.city}"></span></li>
+                <li><i class="fas fa-graduation-cap"></i> College: <span th:text="${user.college}"></span></li>
+                <li><i class="fas fa-info-circle"></i> Bio: <span th:text="${user.bio}"></span></li>
+            </ul>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <p><i class="fab fa-linkedin"></i> <a th:href="${user.linkedIn}" target="_blank">LinkedIn</a></p>
+                <p><i class="fab fa-github"></i> <a th:href="${user.gitHub}" target="_blank">GitHub</a></p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
