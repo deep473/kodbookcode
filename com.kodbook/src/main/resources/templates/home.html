@@ -7,9 +7,10 @@
 </head>
 <body>
     <nav>
-        <a href="#">News feed</a>
+    	<span th:text="${session.username}"></span>
+        <a href="/goHome">News feed</a>
         <a href="/openCreatePost">Create post</a>
-        <a href="#">My profile</a>
+        <a href="/openMyProfile">My profile</a>
     </nav>
     
     <div class="profile-details">

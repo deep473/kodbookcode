@@ -121,3 +121,53 @@ input[type="submit"]:hover {
     margin-bottom: 10px;
     color: #2A2A2A;
 }
+
+/* Post Form Container */
+.post-form-container {
+    margin: 50px auto;
+    padding: 20px;
+    width: 50%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Post Form Elements */
+#profileForm textarea {
+    width: 80%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #7695FF;
+    font-size: 1.2em;
+    resize: none;
+}
+
+#profileForm input[type="file"] {
+    background-color: #FF9874;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+#profileForm button {
+    background-color: #FF9874;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+#profileForm button:hover {
+    background-color: #FF9874;
+    opacity: 0.8;
+}
