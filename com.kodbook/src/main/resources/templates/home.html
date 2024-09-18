@@ -16,6 +16,10 @@
     <div class="profile-details">
         <span th:each="post : ${allPosts}">
             <div class="post">
+            	<p><strong>User:</strong> 
+				    <span th:text="${post.user.username}">Unknown</span>
+				</p>
+            	
                 <p><strong>Photo:</strong></p>
                 <img th:if="${post.photoBase64}" 
                     th:src="'data:image/jpeg;base64,' + ${post.photoBase64}" 
