@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <title>Create New Post</title>
     <link rel="stylesheet" type="text/css" th:href="@{/profile.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Navigation bar -->
     <nav>
-        <a href="/goHome">News feed</a>
-        <a href="/openCreatePost">Create post</a>
-        <a href="/openMyProfile">My profile</a>
+        <span th:text="${session.username}"></span>
+        <a href="/goHome"><i class="fas fa-home"></i> News feed</a>
+        <a href="/openCreatePost"><i class="fas fa-plus-circle"></i> Create post</a>
+        <a href="/openMyProfile"><i class="fas fa-user-circle"></i> My profile</a>
     </nav>
 
     <div class="post-form-container">

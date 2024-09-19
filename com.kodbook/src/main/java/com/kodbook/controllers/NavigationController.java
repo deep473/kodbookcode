@@ -45,6 +45,9 @@ public class NavigationController {
 		String username = (String) session.getAttribute("username");
 		User user = service.getUser(username);
 		model.addAttribute("user", user);
+		List<Post> myPosts = user.getPosts();
+		model.addAttribute("myPosts", myPosts);
+		
 		return "myProfile";
 	}
 	

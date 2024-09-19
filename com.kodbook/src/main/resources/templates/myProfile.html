@@ -9,6 +9,7 @@
 <body>
     <!-- Navigation bar -->
     <nav>
+        <span th:text="${session.username}"></span>
         <a href="/goHome"><i class="fas fa-home"></i> News feed</a>
         <a href="/openCreatePost"><i class="fas fa-plus-circle"></i> Create post</a>
         <a href="/openMyProfile"><i class="fas fa-user-circle"></i> My profile</a>
@@ -51,6 +52,64 @@
                 <p><i class="fab fa-github"></i> <a th:href="${user.gitHub}" target="_blank">GitHub</a></p>
             </div>
         </div>
+    
+    
+    </div>
+    <div class="posts-container">
+        <span th:each="post : ${myPosts}">
+            <div class="post-card">
+                <!-- Profile picture and Username -->
+                <div class="post-header">
+                    <div class="profile-pic">
+                        <img th:if="${post.user.photoBase64}" 
+                             th:src="'data:image/jpeg;base64,' + ${post.user.photoBase64}" 
+                             alt="User Photo" />
+                    </div>
+                    <span class="username" th:text="${post.user.username}">Unknown</span>
+                </div>
+
+                <!-- Post Image -->
+                <div class="post-image">
+                    <img th:if="${post.photoBase64}" 
+                         th:src="'data:image/jpeg;base64,' + ${post.photoBase64}" 
+                         alt="Post Photo" />
+                </div>
+
+                <!-- Caption -->
+                <p class="caption">
+                    <span th:text="${post.caption}"></span>
+                </p>
+
+                <!-- Likes -->
+                <p class="likes">
+                    <strong>Likes:</strong> 
+                    <span th:text="${post.likes}"></span>
+                </p>
+
+                <!-- Like form -->
+                <form action="/likePost" method="post" class="like-form">
+                    <input type="hidden" name="id" th:value="${post.id}">
+                    <input type="submit" value="LIKE POST">
+                </form>
+
+                <!-- Comment form -->
+                <form action="/addComment" method="post" class="comment-form">
+                    <input type="hidden" name="id" th:value="${post.id}">
+                    <textarea name="comment" placeholder="Add a comment..." required></textarea>
+                    <input type="submit" value="Comment">
+                </form>
+
+                <!-- Displaying Comments -->
+                <div class="comments-section">
+                    <h4>Comments:</h4>
+                    <ul>
+                        <li th:each="comment : ${post.comments}">
+                            <span th:text="${comment}"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </span>
     </div>
 </body>
 </html>

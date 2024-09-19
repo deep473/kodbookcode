@@ -28,10 +28,74 @@ nav a {
 
 nav a:hover {
     background-color: #9DBDFF;
-    color: #fff;
 }
 
-/* Posts container */
+/* Profile Header */
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #9DBDFF;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.profile-picture img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #FFD7C4;
+    margin-bottom: 10px;
+}
+
+.username h1 {
+    color: #2A2A2A;
+    margin: 0;
+}
+
+/* Profile Content */
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-info li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+}
+
+.profile-info i {
+    margin-right: 8px;
+    color: #7695FF;
+}
+
+.social-links p {
+    margin: 5px 0;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #7695FF;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #FF9874;
+}
+
+/* Posts Container */
 .posts-container {
     display: flex;
     flex-direction: column;
@@ -40,7 +104,7 @@ nav a:hover {
     width: 100%;
 }
 
-/* Post card */
+/* Post Card */
 .post-card {
     background-color: white;
     border-radius: 15px;
@@ -112,7 +176,6 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #FF9874;
     opacity: 0.8;
 }
 
@@ -150,4 +213,34 @@ input[type="submit"]:hover {
     border-radius: 10px;
     margin-bottom: 10px;
     color: #2A2A2A;
+}
+
+/* Post Form Container */
+.post-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #9DBDFF;
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.post-form-container h2 {
+    margin-bottom: 20px;
+    color: #2A2A2A;
+}
+
+textarea {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid #7695FF;
+    resize: none;
+}
+
+/* Input Fields */
+input[type="file"] {
+    margin-top: 10px;
 }
