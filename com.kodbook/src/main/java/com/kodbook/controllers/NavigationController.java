@@ -52,7 +52,17 @@ public class NavigationController {
 	}
 	
 	@GetMapping("/openEditProfile")
-	public String openEditProfile() {
-		return "editProfile";
+	public String openEditProfile(HttpSession session) {
+		
+		if(session.getAttribute("username")!=null)
+			return "editProfile";
+		else
+			return "index";
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "index";
 	}
 }
