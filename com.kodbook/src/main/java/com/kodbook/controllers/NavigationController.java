@@ -60,6 +60,16 @@ public class NavigationController {
 			return "index";
 	}
 	
+	@PostMapping("/visitProfile")
+	public String visitProfile(@RequestParam String profileName, Model model) {
+		User user = service.getUser(profileName);
+		model.addAttribute("user", user);
+		List<Post> myPosts = user.getPosts();
+		model.addAttribute("myPosts", myPosts);
+		
+		return "showUserProfile";
+	}
+	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();

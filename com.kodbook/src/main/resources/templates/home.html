@@ -12,7 +12,7 @@
         <a href="/goHome"><i class="fas fa-home"></i> News feed</a>
         <a href="/openCreatePost"><i class="fas fa-plus-circle"></i> Create post</a>
         <a href="/openMyProfile"><i class="fas fa-user-circle"></i> My profile</a>
-        <a href="/logout">LOG OUT</a>
+        <a href="/logout"><i class="fas fa-sign-out-alt"></i> LOG OUT</a>
     </nav>
 
     <div class="posts-container">
@@ -25,7 +25,14 @@
                              th:src="'data:image/jpeg;base64,' + ${post.user.photoBase64}" 
                              alt="User Photo" />
                     </div>
+                    
+                    <form action="/visitProfile" method="post">
                     <span class="username" th:text="${post.user.username}">Unknown</span>
+	                    <input type="hidden" name="profileName" th:value="${post.user.username}">
+	                    
+	                    <input type="submit" value="Visit profile">
+	                </form>
+              
                 </div>
 
                 <!-- Post Image -->
