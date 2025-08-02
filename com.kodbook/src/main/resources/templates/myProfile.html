@@ -25,8 +25,8 @@
 
         <!-- Profile Picture -->
         <div class="profile-picture">
-            <img th:if="${user.photoBase64}" 
-                 th:src="'data:image/jpeg;base64,' + ${user.photoBase64}" 
+            <img th:if="${user.profilePicBase64}" 
+                 th:src="'data:image/jpeg;base64,' + ${user.profilePicBase64}" 
                  alt="Profile Photo" />
         </div>
 
@@ -53,17 +53,16 @@
                 <p><i class="fab fa-github"></i> <a th:href="${user.gitHub}" target="_blank">GitHub</a></p>
             </div>
         </div>
-    
-    
     </div>
+
     <div class="posts-container">
         <span th:each="post : ${myPosts}">
             <div class="post-card">
                 <!-- Profile picture and Username -->
                 <div class="post-header">
                     <div class="profile-pic">
-                        <img th:if="${post.user.photoBase64}" 
-                             th:src="'data:image/jpeg;base64,' + ${post.user.photoBase64}" 
+                        <img th:if="${post.user.profilePicBase64}"
+                             th:src="'data:image/jpeg;base64,' + ${post.user.profilePicBase64}"
                              alt="User Photo" />
                     </div>
                     <span class="username" th:text="${post.user.username}">Unknown</span>
