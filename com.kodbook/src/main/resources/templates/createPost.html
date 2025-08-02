@@ -1,30 +1,89 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Create New Post</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/profile.css}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <title>Create New Post</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/profile.css}">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation bar -->
-    <nav>
-        <span th:text="${session.username}"></span>
-        <a href="/goHome"><i class="fas fa-home"></i> News feed</a>
-        <a href="/openCreatePost"><i class="fas fa-plus-circle"></i> Create post</a>
-        <a href="/openMyProfile"><i class="fas fa-user-circle"></i> My profile</a>
-        <a href="/logout"><i class="fas fa-sign-out-alt"></i> LOG OUT</a>
-    </nav>
+  <nav>
+    <span th:text="${session.username}"></span>
+    <a href="/goHome"><i class="fas fa-home"></i> News feed</a>
+    <a href="/openCreatePost"><i class="fas fa-plus-circle"></i> Create post</a>
+    <a href="/openMyProfile"><i class="fas fa-user-circle"></i> My profile</a>
+    <a href="/logout"><i class="fas fa-sign-out-alt"></i> LOG OUT</a>
+  </nav>
 
-    <div class="post-form-container">
-        <h2>Create a New Post</h2>
-        <form id="profileForm" action="/createPost" method="post" enctype="multipart/form-data">
-            <textarea name="caption" placeholder="Write your caption here..." required></textarea>
-            <br><br>
-            <input type="file" name="photo" accept="image/*" />
-            <br><br>
-            <button type="submit">POST</button>
-        </form>
-    </div>
+  <div class="post-form-container">
+    <h2>Create a New Post</h2>
+    <form th:action="@{/createPost}"
+          method="post"
+          enctype="multipart/form-data"
+          id="postForm">
+      <textarea name="caption"
+                placeholder="Write your caption here..."
+                required></textarea>
+      <br/><br/>
+
+      <label>
+        <input type="radio" name="postType" value="IMAGE" checked />
+        Image
+      </label>
+      <label>
+        <input type="radio" name="postType" value="VIDEO" />
+        Video
+      </label>
+      <br/><br/>
+
+      <div id="imageInput">
+        <input type="file"
+               name="photo"
+               accept="image/*"
+               required
+               id="photoInput"/>
+      </div>
+
+      <div id="videoInput" style="display:none;">
+        <!-- removed `required` here -->
+        <input type="url"
+               name="videoUrl"
+               placeholder="Enter YouTube link"
+               id="videoUrlInput"/>
+      </div>
+      <br/>
+      <button type="submit">POST</button>
+    </form>
+  </div>
+
+  <script>
+    const form      = document.getElementById('postForm');
+    const radios    = form.querySelectorAll('input[name="postType"]');
+    const imgDiv    = document.getElementById('imageInput');
+    const vidDiv    = document.getElementById('videoInput');
+    const photoIn   = document.getElementById('photoInput');
+    const urlIn     = document.getElementById('videoUrlInput');
+
+    function updateInputs() {
+      const isImage = form.querySelector('input[name="postType"]:checked').value === 'IMAGE';
+
+      // IMAGE selected?
+      imgDiv.style.display = isImage ? 'block' : 'none';
+      photoIn.required     = isImage;
+      photoIn.disabled     = !isImage;
+
+      // VIDEO selected?
+      vidDiv.style.display = isImage ? 'none' : 'block';
+      urlIn.required       = !isImage;
+      urlIn.disabled       = isImage;
+    }
+
+    // Initialize on load
+    updateInputs();
+
+    // Update whenever the radio changes
+    radios.forEach(r => r.addEventListener('change', updateInputs));
+  </script>
 </body>
 </html>
